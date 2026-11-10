@@ -1,0 +1,686 @@
+/* Botones de navegación base */
+.nav-btn {
+    color: #475569;
+}
+
+.nav-btn:hover {
+    background-color: #f1f5f9;
+}
+
+/* Botón activo */
+.nav-btn.active {
+    background-color: #f43f5e;
+    color: white !important;
+    box-shadow: 0 4px 6px -1px rgb(244 63 94 / 0.2);
+}
+
+/* Animación de las transiciones entre ventanas */
+.tab-content {
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Corazones voladores de la lluvia mágica */
+.heart-drop {
+    position: fixed;
+    top: -10vh;
+    font-size: 24px;
+    color: #f43f5e;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50vh) translateX(20px) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(110vh) translateX(-20px) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* Animación para las cabecitas de Namjoon */
+.namjoon-drop {
+    position: fixed;
+    top: -10vh;
+    font-size: 32px; /* Un poquito más grandes para que se distingan */
+    pointer-events: none;
+    z-index: 9999;
+    animation: namjoon-fall linear forwards;
+}
+
+@keyframes namjoon-fall {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(0.8);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50vh) translateX(25px) rotate(180deg) scale(1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(110vh) translateX(-25px) rotate(360deg) scale(0.8);
+        opacity: 0;
+    }
+}
+
+@import url('https://googleapis.com');
+
+.font-handwrintin {
+    font-family: 'caveat', cursive;
+    font-size: 1.25rem;
+}
+/* Animación de levitación suave para el asistente */
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(3deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+.animate-float {
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+/* Levitación base para el muñeco articulado */
+@keyframes floatChibi {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: floatChibi 2.8s ease-in-out infinite;
+}
+
+/* Efecto interactivo al pasar el mouse por encima */
+.nj-chibi:hover .w-14 {
+    transform: rotate(5deg);
+    background-color: #fef3c7; /* Se sonroja levemente */
+    transition: all 0.3s ease;
+}
+
+/* Bordes para simular los elementos del logo de BTS */
+.rounded-l-xs { border-radius: 2px 0 0 2px; }
+.rounded-r-xs { border-radius: 0 2px 2px 0; }
+/* Animación de tambaleo al caminar */
+.caminando-anim {
+    animation: tambaleo 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes tambaleo {
+    0% { transform: rotate(-3deg) translateY(0); }
+    100% { transform: rotate(3deg) translateY(-2px); }
+}
+
+/* Animación física del bracito saludando */
+.saludando-anim {
+    animation: agitarBrazo 0.25s ease-in-out infinite alternate;
+}
+
+@keyframes agitarBrazo {
+    0% { transform: rotate(40deg); }
+    100% { transform: rotate(150deg); }
+}
+
+/* Clases de utilidad para el logo del suéter */
+.rounded-l-xs { border-radius: 2px 0 0 2px; }
+.rounded-r-xs { border-radius: 0 2px 2px 0; }
+/* Animación de caminata (Balanceo de lado a lado) */
+.caminando-anim {
+    animation: caminarEfecto 0.35s ease-in-out infinite alternate;
+}
+
+@keyframes caminarEfecto {
+    0% { transform: rotate(-4deg); }
+    100% { transform: rotate(4deg); }
+}
+
+/* Animación del brazo saludando efusivamente */
+.saludando-anim {
+    animation: agitarBrazoRM 0.2s ease-in-out infinite alternate;
+}
+
+@keyframes agitarBrazoRM {
+    0% { transform: rotate(30deg) translateY(0); }
+    100% { transform: rotate(140deg) translateY(-2px); }
+}
+
+/* Perspectivas físicas de perfil del muñeco al caminar */
+.perfil-derecha { 
+    transform: scaleX(1) !important;
+}
+
+.perfil-izquierda { 
+    transform: scaleX(-1) !important;
+}
+.mirando-al-frente {
+    transform: scaleX(1) !important;
+}
+
+/* Cuando saluda, forzamos al cuerpo a mirar al frente cancelando el espejo */
+.nj-chibi-container img, .nj-chibi-container div {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+/* Estilos para la pantalla de introducción */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a; /* Fondo oscuro elegante, puedes cambiarlo por un rosa si prefieres */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Asegura que tape todo lo demás */
+    transition: opacity 1s ease, visibility 1s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.intro-content {
+    max-width: 600px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif; /* Cambia por la tipografía de tu web */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.intro-title {
+    font-size: 2rem;
+    color: #ff4d6d; /* Un color rosa/rojo llamativo */
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#btn-entrar {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+}
+
+#btn-entrar:hover {
+    background-color: #ff758f;
+    transform: scale(1.05);
+}
+/* Estilos para el Modal del Cupón */
+.coupon-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 100000; /* Por encima de todo */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+/* Tarjeta inspirada en una Photocard/Álbum de BTS */
+.coupon-card {
+    background: linear-gradient(135deg, #2d124d 0%, #190a2c 100%);
+    border: 3px solid #8a54ff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 380px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(138, 84, 255, 0.4);
+    font-family: 'Poppins', sans-serif;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #fff;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Botón cerrar */
+.close-coupon {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 28px;
+    color: #a27bff;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close-coupon:hover { color: #fff; }
+
+/* Encabezado Namjoon */
+.namjoon-header h3 {
+    color: #bb9eff;
+    margin: 10px 0 5px 0;
+    font-size: 1.4rem;
+}
+.nam-avatar {
+    font-size: 40px;
+    background: #3c1b69;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 2px solid #8a54ff;
+}
+
+/* Cuerpo del cupón */
+.nam-quote {
+    font-style: italic;
+    color: #d1c4e9;
+    font-size: 0.95rem;
+    margin: 15px 0;
+    line-height: 1.4;
+}
+.coupon-badge {
+    background: #fff;
+    color: #190a2c;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px dashed #8a54ff;
+    margin: 20px 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    box-shadow: inset 0 0 10px rgba(138, 84, 255, 0.2);
+}
+.coupon-footer {
+    font-size: 0.8rem;
+    color: #8a54ff;
+    margin-top: 15px;
+}
+/* Pantalla completa de la introducción */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 1s ease, visibility 1s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #11051c; /* Fondo morado oscuro de respaldo mientras carga el video */
+}
+
+/* Configuración para que tu video ocupe toda la pantalla de forma responsiva */
+.video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Se manda detrás del texto */
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Recorta el video inteligentemente para llenar la pantalla sin deformarse */
+}
+
+/* Capa sutil oscura para asegurar que tus textos blancos se lean de maravilla */
+#intro-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 5, 28, 0.45); /* Filtro morado/oscuro translúcido */
+    z-index: 0;
+}
+
+/* Tarjeta translúcida estilo "Glassmorphism" con colores Army */
+.intro-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    background: rgba(25, 10, 44, 0.75); /* Fondo morado oscuro con opacidad */
+    padding: 35px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px); /* Efecto esmerilado genial en el fondo */
+    border: 1.5px solid rgba(138, 84, 255, 0.3);
+    box-sizing: border-box;
+}
+
+.intro-title {
+    font-size: 1.8rem;
+    color: #bb9eff; /* Color morado lila de BTS */
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.intro-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Botón interactivo */
+#btn-entrar {
+    background: linear-gradient(135deg, #8a54ff 0%, #ff4d6d 100%);
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    max-width: 280px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(138, 84, 255, 0.4);
+}
+
+#btn-entrar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+}
+.mi-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.contenedor-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.mi-avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, border-radius 0.3s ease;
+}
+.mi-avatar.agrandada {
+    transform: scale(2.5);
+    border-radius: 8px;
+    z-index: 10;
+    position: relative;
+}
+.girando-ruleta {
+    transition: transform 3s cubic-bezier(0.1, 0.8, 0.3, 1) !important;
+    transform: rotate(1800deg);
+}
+.fade-in-premio {
+    animation: aparecerPremio 0.5s ease-in-out forwards;
+}
+
+@keyframes aparecerPremio {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+/* Cursor interactivo de la consola */
+#texto-consola::after {
+    content: " █";
+    animation: parpadeoCursorSecreto 0.8s infinite;
+    color: #a855f7;
+}
+
+@keyframes parpadeoCursorSecreto {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Filtro de líneas de monitor viejo */
+#fase-consola::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+    z-index: 2;
+    background-size: 100% 4px;
+    pointer-events: none;
+}
+.music-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 350px;
+    margin: 20px auto;
+    box-shadow: 0 8px 24px rgba(255, 182, 193, 0.4);
+    border: 1px solid rgba(255, 192, 203, 0.5);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.music-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.music-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #ff6b81;
+    letter-spacing: 2px;
+}
+
+.heart-icon, .ghost-icon {
+    font-size: 1.2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.music-info {
+    margin-bottom: 20px;
+}
+
+.song-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2f3542;
+    margin: 0 0 5px 0;
+}
+
+.artist-name {
+    font-size: 0.9rem;
+    color: #747d8c;
+    margin: 0;
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.control-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ff6b81;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 107, 129, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.control-btn:hover {
+    transform: scale(1.08);
+}
+
+.progress-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.custom-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background: #dfe4ea;
+    outline: none;
+}
+
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;   
+    border-radius: 50%;
+    background: #ff6b81;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+.music-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 350px;
+    margin: 20px auto;
+    box-shadow: 0 8px 24px rgba(255, 182, 193, 0.4);
+    border: 1px solid rgba(255, 192, 203, 0.5);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.music-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.music-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #ff6b81;
+    letter-spacing: 2px;
+}
+
+.music-info {
+    margin-bottom: 15px;
+}
+
+.song-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2f3542;
+    margin: 0 0 5px 0;
+}
+
+.artist-name {
+    font-size: 0.9rem;
+    color: #747d8c;
+    margin: 0;
+}
+
+.progress-container {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Controles en fila */
+.music-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Estilo base de los botones */
+.control-btn {
+    border: none;
+    cursor: pointer;
+    background: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.control-btn:hover {
+    transform: scale(1.15);
+}
+
+/* Botón principal de Play (Más grande) */
+.main-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: #ff6b81;
+    color: white;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 10px rgba(255, 107, 129, 0.4);
+}
+
+/* Botones de Siguiente y Anterior */
+.secondary-btn {
+    width: 40px;
+    height: 40px;
+    color: #ff6b81;
+    font-size: 1.2rem;
+}
